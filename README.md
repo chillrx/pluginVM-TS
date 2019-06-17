@@ -5,9 +5,9 @@ It adds 20% more font-size for every text in the page, highlights links and imag
 
 ## Usage
 
-Download pluginVM.js in the root of your project folder;
+Download the project in the root of your project folder;
 
-Include "<script src="./pluginVM.js" defer></script>" to your main html file situated in the root of your project;
+Include "<script src="./src/app.tsx" defer></script>" to your main html file situated in the root of your project;
 
 Open your project through the main html file, the plugin is going to add a floating button, you just have to click on it!
 
