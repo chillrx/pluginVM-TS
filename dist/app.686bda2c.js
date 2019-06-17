@@ -888,15 +888,6 @@ Object.defineProperty(exports, "__esModule", {
 
 var preact_1 = require("preact");
 
-var containerPluginVM = {
-  'width': '100%',
-  'display': 'flex',
-  'justify-content': 'center',
-  'position': 'fixed',
-  'z-index': 2,
-  'bottom': '10px'
-};
-
 var PluginVM =
 /** @class */
 function (_super) {
@@ -907,13 +898,19 @@ function (_super) {
 
     _this.makeChanges = function () {
       var aux,
+          temp,
+          filterFunction,
           filteredTree,
           textNodes = [];
-      filteredTree = document.createTreeWalker(document.body, NodeFilter.SHOW_ALL, {
-        acceptNode: function acceptNode(node) {
-          return node.nodeType === 3 && node.textContent.trim() !== '' && node.parentNode.id != 'buttonPluginVM' || node.tagName == "IMG" ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_SKIP;
-        }
-      });
+
+      filterFunction = function filterFunction(node) {
+        return node.nodeType === 3 && node.textContent.trim() !== '' && node.parentNode.id != 'buttonPluginVM' || node.tagName == "IMG" ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_SKIP;
+      };
+
+      temp = /MSIE|Trident/.test(navigator.userAgent) ? filterFunction : {
+        acceptNode: filterFunction
+      };
+      filteredTree = document.createTreeWalker(document.body, NodeFilter.SHOW_ALL, temp, false);
 
       while (aux = filteredTree.nextNode()) {
         textNodes[textNodes.length] = aux;
@@ -968,6 +965,14 @@ function (_super) {
 }(preact_1.Component);
 
 exports.default = PluginVM;
+var containerPluginVM = {
+  'width': '100%',
+  'display': 'flex',
+  'justify-content': 'center',
+  'position': 'fixed',
+  'z-index': 2,
+  'bottom': '10px'
+};
 },{"preact":"node_modules/preact/dist/preact.mjs"}],"src/app.tsx":[function(require,module,exports) {
 "use strict";
 
@@ -1014,7 +1019,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63407" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49429" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

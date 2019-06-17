@@ -9,14 +9,20 @@ export default class PluginVM extends Component {
     }
 
     makeChanges = () => {
-        let aux, filteredTree, textNodes = [];
+        let aux, temp, filterFunction, filteredTree, textNodes = [];
 
-        filteredTree = document.createTreeWalker(document.body, NodeFilter.SHOW_ALL, {
-            acceptNode: (node: any) => (node.nodeType === 3 && node.textContent.trim() !== '' && node.parentNode.id != 'buttonPluginVM') || node.tagName == "IMG" ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_SKIP
-        });
+        filterFunction = node => {
+            return (node.nodeType === 3 && node.textContent.trim() !== '' && node.parentNode.id != 'buttonPluginVM') || node.tagName == "IMG" ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_SKIP;
+        };
+
+        temp = /MSIE|Trident/.test(navigator.userAgent) ? filterFunction : {
+            acceptNode: filterFunction
+        };
+
+        filteredTree = document.createTreeWalker(document.body, NodeFilter.SHOW_ALL, temp, false);
 
         while (aux = filteredTree.nextNode())
-            textNodes[textNodes.length] = aux;
+        textNodes[textNodes.length] = aux;
 
         for (let i = textNodes.length - 1; i >= 0; i--) {
             const element = textNodes[i];
