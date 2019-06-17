@@ -4,7 +4,7 @@ export default class PluginVM extends Component {
 
     render() {
         return <div style={containerPluginVM}>
-            <button onClick={_ => this.makeChanges()}>Executar plugin</button>
+            <button id="buttonPluginVM" onClick={_ => this.makeChanges()}>Executar plugin</button>
         </div>;
     }
 

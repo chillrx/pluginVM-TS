@@ -937,6 +937,7 @@ function (_super) {
     return preact_1.h("div", {
       style: containerPluginVM
     }, preact_1.h("button", {
+      id: "buttonPluginVM",
       onClick: function onClick(_) {
         return _this.makeChanges();
       }
@@ -1019,7 +1020,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49429" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50825" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
