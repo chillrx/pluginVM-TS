@@ -1,0 +1,21 @@
+{
+  "name": "pluginVM-TS",
+  "version": "1.0.0",
+  "author": "Victor Machado",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "parcel-bundler": "^1.12.3",
+    "preact": "^8.4.2",
+    "ts-loader": "^6.0.2",
+    "typescript": "^3.6.0-dev.20190615"
+  }
+}
