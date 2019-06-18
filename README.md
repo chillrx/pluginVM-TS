@@ -1,5 +1,6 @@
 # PluginVM
-Challenge proposed to get an internship.
+
+Plugin made with preact, tsx and parcel.
 
 It adds 20% more font-size for every text in the page, highlights links and images that don't have anything in the alt attribute.
 
