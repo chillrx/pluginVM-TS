@@ -1,7 +1,6 @@
 {
   "name": "pluginVM-TS",
   "version": "1.0.0",
-  "author": "Victor Machado",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -10,7 +9,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Victor Machado",
   "license": "ISC",
   "dependencies": {
     "parcel-bundler": "^1.12.3",
